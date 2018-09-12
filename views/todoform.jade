@@ -1,33 +1,23 @@
 extends  layout
 
 block content
-
     .container
-      p 
-        form(action="/tasks"  method="post")
-          label(for='new-task') Add Item
-          input(type='text' name='name')
-          //button.btn.btn-primary(type='submit') Login
-          button(type='submit') Add
+      p
+      button(id="get-button") GetData
+      form(id="create-form")
+        input(type="text" id="create-input")
+        button Add
       h3 Todo
-      ul#incomplete-tasks
-        each task in Task
-          li
-            input(type='checkbox')            
-            label #{task.name};
-            label #{task.status};          
-            input(type='text')
-            
-            button.edit Edit
-            
-            button(type='submit') Delete
-                
-        li.editMode
-          input(type='checkbox')
-          label Go Shopping
-          input(type='text', value='Go Shopping')
-          button.edit Edit
-          button.delete Delete
+      
+      table 
+        thead 
+          tr
+            th Name
+            th Status
+        
+        tbody 
+          
+
       h3 Completed
       ul#completed-tasks
         li
@@ -36,4 +26,4 @@ block content
           input(type='text')
           button.edit Edit
           button.delete Delete
-   
+    

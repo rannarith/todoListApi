@@ -23,7 +23,9 @@ mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/Tododb');
 
 
-// view engine setup
+// view engine setup or template engine
+
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 

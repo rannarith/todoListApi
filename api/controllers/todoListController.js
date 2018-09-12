@@ -7,7 +7,15 @@ exports.list_all_tasks = function(req, res) {
     Task.find({}, function(err, task){
         if(err) 
             res.send(err);
-        res.render('todoform',{Task: task});
+
+            if ( req.xhr ) {
+                res.send({Task: task});
+            
+            }
+            else {
+                res.render('todoform',{Task: task});
+            }
+        
 
     });
 };
@@ -18,7 +26,7 @@ exports.create_a_task = function(req, res) {
     new_task.save(function(err, task){
         if(err)
             res.send(err);
-        res.redirect('/tasks');
+        res.send(task);
     });
 }
 
